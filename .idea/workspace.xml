@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd48b8c3-407a-453c-a287-1a6c034349a8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Category.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_04_10_170518_create_categories_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +18,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -134,6 +132,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -165,7 +164,7 @@
       <workItem from="1586180425078" duration="9865000" />
       <workItem from="1586233588580" duration="2438000" />
       <workItem from="1586434242301" duration="1256000" />
-      <workItem from="1586537716014" duration="626000" />
+      <workItem from="1586532461199" duration="3062000" />
     </task>
     <servers />
   </component>
@@ -177,14 +176,22 @@
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state x="693" y="310" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.28.1920.1052@0.28.1920.1052" timestamp="1586115490496" />
+    <state x="667" y="260" width="576" height="591" key="MultipleFileMergeDialog" timestamp="1586539042659">
+      <screen x="0" y="28" width="1920" height="1052" />
+    </state>
+    <state x="667" y="260" width="576" height="591" key="MultipleFileMergeDialog/0.28.1920.1052@0.28.1920.1052" timestamp="1586539042659" />
     <state x="758" y="469" width="393" height="174" key="NewPhpFileDialog" timestamp="1586200095076">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state x="758" y="469" width="393" height="174" key="NewPhpFileDialog/0.28.1920.1052@0.28.1920.1052" timestamp="1586200095076" />
-    <state x="627" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1586434243618">
+    <state x="627" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1586539019072">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
-    <state x="627" y="380" key="com.intellij.ide.util.TipDialog/0.28.1920.1052@0.28.1920.1052" timestamp="1586434243618" />
+    <state x="627" y="380" key="com.intellij.ide.util.TipDialog/0.28.1920.1052@0.28.1920.1052" timestamp="1586539019072" />
+    <state x="736" y="464" width="447" height="183" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586539111633">
+      <screen x="0" y="28" width="1920" height="1052" />
+    </state>
+    <state x="736" y="464" width="447" height="183" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.28.1920.1052@0.28.1920.1052" timestamp="1586539111633" />
     <state x="624" y="250" key="run.anything.popup" timestamp="1586100248496">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
