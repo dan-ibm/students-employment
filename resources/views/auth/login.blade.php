@@ -36,11 +36,12 @@
                                 </div>
 
                                 <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Sign In</button>
-                                <div class="text-center">If you have an account?
-                                    <a class="small" href="{{url('registration')}}">Sign Up</a>
+
+                                <div class="text-center mb-2">If you have an account?
+                                    <a class="small" href="{{url('registration')}}"></a>
                                 </div>
-                                    <a href="registration?type=student">Register Student</a>
-                                    <a href="registration?type=employer">Register Employer</a>
+                                    <a class ="p-5" href="registration?type=student">Register Student</a>
+                                    <a class ="p-5" href="registration?type=employer">Register Employer</a>
                             </form>
                         </div>
                     </div>
