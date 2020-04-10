@@ -75,9 +75,6 @@
 
                             @if($_GET['type'] == 'student')
                                 <div class="container">
-
-
-
                                     <div class="col-md-8 order-md-1">
                                         <h4 class="mb-3">Register as a STUDENT</h4>
                                         <form action="{{ route('post-reg', 'student') }}" method="POST" id="regForm">
