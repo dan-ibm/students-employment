@@ -26,7 +26,7 @@
         <div>
             @foreach($vacancies as $employer)
                 <ul>
-                    <li><a href="list/{{$employer->id}}">{{$employer->title}}</a></li>
+                    <li><a href="{{url('vacancies')}}/{{$employer->id}}">{{$employer->title}}</a></li>
                     <p>{{ $employer->position }}</p>
                 </ul>
             @endforeach
