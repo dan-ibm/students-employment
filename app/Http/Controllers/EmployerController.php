@@ -16,8 +16,10 @@ class EmployerController extends Controller
     public function index()
     {
         //
-        $employers = Employer::all();
-        return view('employers.index',compact('employers'));
+        $userid = Session::get('user_id');
+        $employer = Employer::where('user_id', $userid)->first();
+        $vacancies = $employer->vacancies;
+        return view('employers.dashboard', ['employer' => $employer, 'vacancies' => $vacancies]);
     }
 
     /**

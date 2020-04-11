@@ -12,6 +12,6 @@
     <p>Условия работы: {{ $vacancy->terms }}</p>
     <p>Навыки: {{ $vacancy->skills }}</p>
 
-    <br><a href="{{ asset('vacancies/all') }}">Вернуться назад</a>
+    <br><a href="{{url('/')}}">Вернуться назад</a>
 </div>
 @endsection

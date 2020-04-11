@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Student;
 use Illuminate\Http\Request;
+use Session;
 use PDF;
 
 class StudentController extends Controller
@@ -15,7 +16,10 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        $userid = Session::get('user_id');
+        $student = Student::where('user_id', $userid)->first();
+        $username = $student->user;
+        return view('students.dashboard', ['student' => $student, 'user' => $username]);
     }
 
     /**
