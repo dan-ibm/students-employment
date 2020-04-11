@@ -8,7 +8,7 @@
                     {{ session()->get('success') }}
                 </div>
             @endif
-            <a href="{{ url('vacancy-create')}}" class="btn btn-primary">Create</a>
+
             <h1 class="display-3">Employers</h1>
             <div>
                 <a style="margin: 19px;" href="{{ route('employer-create')}}" class="btn btn-primary">New employer</a>
