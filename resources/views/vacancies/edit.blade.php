@@ -30,32 +30,32 @@
 
 
                 <div class="form-group">
-                    <label for="category">Category:</label>
-                    <input type="text" class="form-control" name="category" value={{ $employer->responsibility }} />
+                    <label for="category">Responsibilities:</label>
+                    <input type="text" class="form-control" name="responsibilities" value={{ $vacancy->responsibilities }} />
                 </div>
 
                 <div class="form-group">
                     <label for="requirements">Requirements:</label>
-                    <input type="text" class="form-control" name="requirements" value={{ $employer->requirements }} />
+                    <input type="text" class="form-control" name="requirements" value={{ $vacancy->requirements }} />
                 </div>
 
                 <div class="form-group">
-                    <label for="requirements">Requirements:</label>
-                    <input type="text" class="form-control" name="requirements" value={{ $employer->terms }} />
+                    <label for="requirements">Terms:</label>
+                    <input type="text" class="form-control" name="terms" value={{ $vacancy->terms }} />
                 </div>
 
                 <div class="form-group">
                     <label for="min_salary">Min salary:</label>
-                    <input type="text" class="form-control" name="min_salary" value={{ $employer->min_salary }} />
+                    <input type="text" class="form-control" name="min_salary" value={{ $vacancy->min_salary }} />
                 </div>
                 <div class="form-group">
                     <label for="max_salary">Max salary:</label>
-                    <input type="text" class="form-control" name="max_salary" value={{ $employer->max_salary }} />
+                    <input type="text" class="form-control" name="max_salary" value={{ $vacancy->max_salary }} />
                 </div>
 
                 <div class="form-group">
-                    <label for="max_salary">Max salary:</label>
-                    <input type="text" class="form-control" name="max_salary" value={{ $employer->skills }} />
+                    <label for="max_salary">Skills:</label>
+                    <input type="text" class="form-control" name="skills" value={{ $vacancy->skills }} />
                 </div>
                 <button type="submit" class="btn btn-primary">Update</button>
             </form>

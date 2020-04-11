@@ -40,7 +40,7 @@
                         <td>{{$vacancy->skills}}</td>
                         <td>{{$vacancy->created_at}}</td>
                         <td>
-                            <a href="{{ route('vacancy-edit', ['employer'=>$vacancy->id])}}" class="btn btn-primary">Edit</a>
+                            <a href="{{ route('vacancy-edit', ['vacancy'=>$vacancy->id])}}" class="btn btn-primary">Edit</a>
                         </td>
                         <td>
                             <form action="{{ route('vacancies.destroy', $vacancy->id)}}" method="post">

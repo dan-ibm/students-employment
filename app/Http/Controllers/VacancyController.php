@@ -100,21 +100,46 @@ class VacancyController extends Controller
      * @param  \App\Vacancy  $vacancy
      * @return \Illuminate\Http\Response
      */
-    public function edit(Vacancy $vacancy)
+    public function edit($id)
     {
         //
+        $vacancy = Vacancy::find($id);
+        return view('vacancies.edit', compact('vacancy'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Vacancy  $vacancy
+     * @param  \App\Employer  $vacancy
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Vacancy $vacancy)
+    public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'title'=>'required',
+            'position'=>'required',
+            'responsibilities'=>'required',
+            'requirements'=>'required',
+            'terms'=>'required',
+            'min_salary'=>'required',
+            'max_salary'=>'required',
+            'skills' => 'required'
+        ]);
+
+        $vacancy = Vacancy::find($id);
+        $vacancy->title =  $request->get('title');
+        $vacancy->position = $request->get('position');
+        $vacancy->responsibilities = $request->get('responsibilities');
+        $vacancy->requirements = $request->get('requirements');
+        $vacancy->terms = $request->get('terms');
+        $vacancy->min_salary = $request->get('min_salary');
+        $vacancy->max_salary = $request->get('max_salary');
+        $vacancy->skills = $request->get('skills');
+        $vacancy->save();
+
+        return redirect('/vacancies')->with('success', 'Vacancy updated!');
     }
 
     /**
