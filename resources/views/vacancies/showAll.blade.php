@@ -7,7 +7,7 @@
 
     @foreach($vacancies as $vacancy)
         <ul>
-            <li><a href="{{$vacancy->id}}">{{$vacancy->title}}</a></li>
+            <li><a href="vacancy/{{$vacancy->id}}">{{$vacancy->title}}</a></li>
             <p>ЗП от: {{ $vacancy->min_salary }} до {{ $vacancy->max_salary }}</p>
         </ul>
     @endforeach

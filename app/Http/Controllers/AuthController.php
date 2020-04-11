@@ -41,6 +41,7 @@ class AuthController extends Controller
             $id = $user->id;
             Session::put('user_id', $id);
             Session::put('username', $user->username);
+            Session::put('isStudent', $user->is_student);
 
             if ($stud == true) {
                 //route('dashboard', 'students');
@@ -107,27 +108,11 @@ class AuthController extends Controller
         if(Auth::check()){
             $user = Auth()->user();
             if ($user->is_student == false) {
-                $empid = $user->employer->id;
-                $vacancies = Employer::find($empid)->vacancies;
-                $employer = Employer::where('id', $empid)->first();
-                return view('employers.dashboard', ['employer' => $employer, 'vacancies' => $vacancies]);
+                return Redirect::to("employers/dashboard")->withSuccess('Oops! You do not have access');
             }
             elseif ($user->is_student == true) {
-                $studid = $user->student->id;
-                $student = Student::where('id', $studid)->first();
-                $username = $student->user;
-                return view('students.dashboard', ['student' => $student, 'user' => $username]);
+                return Redirect::to("students/dashboard")->withSuccess('Oops! You do not have access');
             }
-        }
-        return Redirect::to("login")->withSuccess('Oops! You do not have access');
-    }
-
-    public function dashboardStudent() {
-        if(Auth::check()) {
-            $user = Auth()->user();
-            $studid = $user->student->id;
-            $student = Student::where('id', $studid);
-            return view('students.dashboard', ['student' => $student]);
         }
         return Redirect::to("login")->withSuccess('Oops! You do not have access');
     }
