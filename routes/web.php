@@ -36,6 +36,8 @@ Route::post('vacancy-post', 'VacancyController@store');
 Route::get('vacancy-create', 'VacancyController@create');
 Route::apiResource('/vacancies', 'VacancyController');
 
+Route::get('vacancies/{vacancy}/edit', 'VacancyController@edit')->name('vacancy-edit');
+
 Route::apiResource('/employers', 'EmployerController');
 Route::get('employers/create', 'EmployerController@create')->name('employer-create');
 Route::get('employers/{employer}/edit', 'EmployerController@edit')->name('employer-edit');
