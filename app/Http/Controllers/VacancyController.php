@@ -71,7 +71,7 @@ class VacancyController extends Controller
 
         ]);
         $vacancy->save();
-        return redirect('/vacancies/all')->with('message', 'Success');
+        return redirect('/employers/dashboard')->with('message', 'Success');
     }
 
     /**

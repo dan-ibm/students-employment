@@ -110,25 +110,17 @@ class EmployerController extends Controller
         //
         $request->validate([
             'org_name'=>'required',
-            'position'=>'required',
-            'title'=>'required',
-            'requirements'=>'required',
-            'category'=>'required',
-            'min_salary'=>'required',
-            'max_salary'=>'required'
+            'email'=>'required',
+            'username'=>'required',
+            'password'=>'required'
         ]);
 
         $employer = Employer::find($id);
         $employer->org_name =  $request->get('org_name');
-        $employer->position = $request->get('position');
-        $employer->title = $request->get('title');
-        $employer->requirements = $request->get('requirements');
-        $employer->category = $request->get('category');
-        $employer->min_salary = $request->get('min_salary');
-        $employer->max_salary = $request->get('max_salary');
+        $employer->email = $request->get('email');
         $employer->save();
 
-        return redirect('/employers')->with('success', 'Employer updated!');
+        return redirect('/employers/dashboard')->with('success', 'Employer updated!');
     }
 
     /**
