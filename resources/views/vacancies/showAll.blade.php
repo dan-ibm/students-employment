@@ -3,14 +3,28 @@
     <title>Объявления о работе</title>
 @endsection
 @section('main')
-<div class="container" style="margin-top: 4%; margin-left: 30%">
+<div class="container">
 
-    @foreach($vacancies as $vacancy)
-        <ul>
-            <li><a href="{{$vacancy->id}}">{{$vacancy->title}}</a></li>
-            <p>ЗП от: {{ $vacancy->min_salary }} до {{ $vacancy->max_salary }}</p>
-        </ul>
-    @endforeach
+    <div class="px-4">
+
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th scope="col">Position</th>
+                <th scope="col">Salary</th>
+
+            </tr>
+            </thead>
+            @foreach($vacancies as $employer)
+                <tbody>
+                <tr>
+                    <td><a href="{{url('vacancies')}}/{{$employer->id}}">{{$employer->position}}</a></td>
+                    <td><a>{{ $employer->min_salary }} - {{ $employer->max_salary }}</a></td>
+
+                </tr>
+                </tbody>
+            @endforeach
+        </table>
 
 </div>
 @endsection

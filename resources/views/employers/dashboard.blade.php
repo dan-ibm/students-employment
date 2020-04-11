@@ -25,7 +25,7 @@
             </div>
 
             <div class = "row px-5 mb-3">
-                <a href="{{ url('vacancies')}}" class="btn btn-primary">My vacancies</a>
+                <a href="{{ url('vacancy-create') }}" class="btn btn-success">Create New</a>
                 <div class="px-5">
                     <a class="btn btn-danger" href="{{url('logout')}}">Logout</a>
                 </div>
@@ -46,6 +46,7 @@
                             <tr>
                                 <td><a href="{{url('vacancies')}}/{{$employer->id}}">{{$employer->position}}</a></td>
                                 <td><a>{{ $employer->min_salary }} - {{ $employer->max_salary }}</a></td>
+
                             </tr>
                         </tbody>
                         @endforeach
