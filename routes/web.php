@@ -27,8 +27,8 @@ Route::get('logout', 'AuthController@logout');
 Route::apiResource('/employers', 'EmployerController');
 Route::get('employers/create', 'EmployerController@create')->name('employer-create');
 Route::get('employers/{employer}/edit', 'EmployerController@edit')->name('employer-edit');
-Route::get('list', 'EmployerController@show');
-Route::get('list/{id}', 'EmployerController@showById');
+//Route::get('list', 'EmployerController@show');
+//Route::get('list/{id}', 'EmployerController@showById');
 Route::get('employers/dashboard', 'EmployerController@index');
 
 

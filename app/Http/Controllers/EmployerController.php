@@ -73,11 +73,10 @@ class EmployerController extends Controller
     public function show()
     {
         //
-        $empid = Session::get('user_id');
-
-        $employer = Employer::where('user_id', $empid)->first();
-        //dd($empid);
-        return view('employers.show', compact('employer'));
+        $userid = Session::get('user_id');
+        $employer = Employer::where('user_id', $userid)->first();
+        $vacancies = $employer->vacancies;
+        return view('employers.dashboard', ['employer' => $employer, 'vacancies' => $vacancies]);
     }
 /**
     function showById($id) {
