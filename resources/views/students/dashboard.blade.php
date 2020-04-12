@@ -20,9 +20,10 @@
                     <h4 class="text-success">{{ $student->email }} </h4>
                 </div>
                 <div class = "row px-5">
-                    <h4 class = "card-text">Your login: </h4>
-                    <h4 class="text-success">{{ $user->username }} </h4>
+                    <h4 class = "card-text">Your phone: </h4>
+                    <h4 class="text-success">{{ $student->phone }} </h4>
                 </div>
+
                 <div class = "row px-5">
                     <h4 class = "card-text">You are: </h4>
                     <h4 class="text-success">{{ $student->status }} </h4>

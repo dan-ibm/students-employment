@@ -28,12 +28,12 @@
 
 
                 <div class="mb-3 form-label-group">
-                    <label for="username">Login</label>
+                    <label for="username">Username</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">@</span>
                         </div>
-                        <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Login" autofocus>
+                        <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username" autofocus>
                         <div class="invalid-feedback" style="width: 100%;">
                             Your username is required.
                         </div>
@@ -42,6 +42,31 @@
                         <span class="error">{{ $errors->first('username') }}</span>
                     @endif
                 </div>
+
+
+                <div class="row">
+                        <div class="form-label-group col-md-6 mb-3">
+                            <label for="email">Email </label>
+                            <input type="text" name="email" id="inputEmail" class="form-control" placeholder="Email">
+                                <div class="invalid-feedback">
+                                    Please enter a valid email address.
+                                </div>
+                            @if ($errors->has('email'))
+                                <span class="error">{{ $errors->first('email') }}</span>
+                            @endif
+                        </div>
+                        <div class="form-label-group col-md-6 mb-3">
+                            <label for="email">Phone </label>
+                            <input type="text" name="phone" id="inputPhone" class="form-control" placeholder="Phone">
+                                <div class="invalid-feedback">
+                                    Please enter a valid phone.
+                                </div>
+                            @if ($errors->has('phone'))
+                                <span class="error">{{ $errors->first('phone') }}</span>
+                            @endif
+                        </div>
+                </div>
+
 
                 <div class="mb-3 form-label-group">
                     <label for="email">Password</label>
@@ -54,12 +79,7 @@
                     @endif
                 </div>
 
-                <div class="mb-3 form-label-group">
-                    <label for="email">Email </label>
-                    <input type="text" name="email" id="inputEmail" class="form-control" placeholder="Email">
-                    <div class="invalid-feedback">
-                        Please enter a valid email address.
-                    </div>
+
                     @if ($errors->has('email'))
                         <span class="error">{{ $errors->first('email') }}</span>
                     @endif
@@ -68,10 +88,9 @@
                 <button class="btn btn-primary btn-lg btn-block" type="submit">Sign IN</button>
 
             </form>
-
     </div>
-</div>
 @endif
+</div>
 
                             @if($_GET['type'] == 'student')
                                 <div class="container">
@@ -86,9 +105,6 @@
                                                     <div class="invalid-feedback">
                                                         Valid first name is required.
                                                     </div>
-                                                    @if ($errors->has('first_name'))
-                                                        <span class="error">{{ $errors->first('first_name') }}</span>
-                                                    @endif
                                                 </div>
 
                                                 <div class="form-label-group col-md-6 mb-3">
@@ -98,9 +114,6 @@
                                                         Valid last name is required.
                                                     </div>
                                                 </div>
-                                                @if ($errors->has('last_name'))
-                                                    <span class="error">{{ $errors->first('last_name') }}</span>
-                                                @endif
                                             </div>
 
                                             <div class="form-label-group mb-3">
@@ -109,7 +122,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text">@</span>
                                                     </div>
-                                                    <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Login" autofocus>
+                                                    <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username" autofocus>
                                                     <div class="invalid-feedback" style="width: 100%;">
                                                         Your username is required.
                                                     </div>
@@ -125,24 +138,33 @@
                                                 <div class="invalid-feedback">
                                                     Please enter a valid email address.
                                                 </div>
-                                                @if ($errors->has('password'))
-                                                    <span class="error">{{ $errors->first('password') }}</span>
-                                                @endif
                                             </div>
 
-                                            <div class="form-label-group mb-3">
-                                                <label for="email">Email </label>
-                                                <input type="text" name="email" id="inputOrgName" class="form-control" placeholder="you@example.com">
-                                                <div class="invalid-feedback">
-                                                    Please enter a valid email address.
+
+                                            <div class="row">
+                                                <div class="form-label-group col-md-6 mb-3">
+                                                    <label for="email">Email </label>
+                                                    <input type="text" name="email" id="inputEmail" class="form-control" placeholder="you@example.com">
+                                                    <div class="invalid-feedback">
+                                                        Please enter a valid email address.
+                                                    </div>
+                                                    @if ($errors->has('email'))
+                                                        <span class="error">{{ $errors->first('email') }}</span>
+                                                    @endif
                                                 </div>
-                                                @if ($errors->has('email'))
-                                                    <span class="error">{{ $errors->first('email') }}</span>
-                                                @endif
+                                                <div class="form-label-group col-md-6 mb-3">
+                                                    <label for="email">Phone </label>
+                                                    <input type="text" name="phone" id="inputPhone" class="form-control" placeholder="Phone">
+                                                    <div class="invalid-feedback">
+                                                        Please enter a valid phone.
+                                                    </div>
+                                                    @if ($errors->has('phone'))
+                                                        <span class="error">{{ $errors->first('phone') }}</span>
+                                                    @endif
+                                                </div>
+
+
                                             </div>
-
-
-
 
                                             <div class="form-label-group">
                                                 <label>I'm a ...</label>
@@ -166,11 +188,8 @@
                             @endif
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
+
 
 </body>
 </html>

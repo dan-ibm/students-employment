@@ -14,13 +14,19 @@
         </div>
 
         <div class="container">
-            <div>
+            <div class="row">
                 <h2 class="text-dark px-4">{{ Auth()->user()->employer->org_name }} </h2>
             </div>
 
+
             <div class = "row px-5 ">
-                <p class="text-secondary">{{ $employer->email }} </p>
+                <p class="text-secondary">Contacts</p>
+                <p class="text-info px-2">{{ $employer->email }} </p>
+                <p class="text-secondary">or</p>
+                <p class="text-info px-2">{{ $employer->phone }} </p>
             </div>
+
+
 
             <div class = "row px-5 mb-3">
                 <a href="{{ url('vacancy-create') }}" class="btn btn-success">Create New</a>
@@ -63,7 +69,6 @@
                     </table>
 
             </div>
-
 
     </div>
 </div>
