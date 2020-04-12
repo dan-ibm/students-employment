@@ -139,7 +139,7 @@ class VacancyController extends Controller
         $vacancy->skills = $request->get('skills');
         $vacancy->save();
 
-        return redirect('/vacancies')->with('success', 'Vacancy updated!');
+        return redirect('/employers/dashboard')->with('success', 'Vacancy updated!');
     }
 
     /**
@@ -154,6 +154,6 @@ class VacancyController extends Controller
         $vacancy = Vacancy::find($id);
         $vacancy->delete();
 
-        return redirect('/vacancies')->with('success', 'Vacancy deleted!');
+        return redirect('/employers/dashboard')->with('success', 'Vacancy deleted!');
     }
 }

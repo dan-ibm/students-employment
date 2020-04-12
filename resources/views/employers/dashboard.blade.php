@@ -48,8 +48,14 @@
                                 <td><a href="{{url('vacancies')}}/{{$employer->id}}">{{$employer->position}}</a></td>
                                 <td><a>{{ $employer->min_salary }} - {{ $employer->max_salary }}</a></td>
                                 <td>
-                                    <a href="{{ route('vacancy-edit', ['vacancy'=>$employer->vacancy->id])}}" class="btn btn-primary">Edit</a>
-                                    <a href='{{ route('vacancies.destroy', $employer->vacancy->id)}}' class="btn btn-danger">Delete</a>
+                                    <a href="{{ route('vacancy-edit', ['vacancy'=>$employer->id])}}" class="btn btn-primary">Edit</a>
+                                </td>
+                                <td>
+                                    <form action="{{ route('vacancies.destroy', $employer->id)}}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger" type="submit">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
