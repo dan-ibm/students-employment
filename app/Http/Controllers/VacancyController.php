@@ -148,8 +148,12 @@ class VacancyController extends Controller
      * @param  \App\Vacancy  $vacancy
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Vacancy $vacancy)
+    public function destroy($id)
     {
         //
+        $vacancy = Vacancy::find($id);
+        $vacancy->delete();
+
+        return redirect('/vacancies')->with('success', 'Vacancy deleted!');
     }
 }
