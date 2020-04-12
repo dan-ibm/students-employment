@@ -18,6 +18,7 @@ class CreateStudentsTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email')->unique();
+            $table->string('phone')->nullable();
             $table->enum('status', ['graduate', 'student']);
             $table->boolean('hasJob')->default(0);
             $table->binary('resume')->nullable();

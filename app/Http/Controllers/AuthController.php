@@ -61,7 +61,8 @@ class AuthController extends Controller
                 //'contact_number' => 'required|contact_number|unique:users',
                 'password' => 'required|min:6',
                 'org_name' => 'required',
-                'email' => 'required'
+                'email' => 'required',
+                'phone' => 'required'
             ]);
 
             $data = $request->all();
@@ -75,6 +76,7 @@ class AuthController extends Controller
             $employer->org_name = $data['org_name'];
             $employer->user_id = $user->id;
             $employer->email = $data['email'];
+            $employer->phone = $data['phone'];
             $employer->save();
 
             return Redirect::to("login")->withSuccess('Great! You have Successfully logged in');
@@ -92,6 +94,7 @@ class AuthController extends Controller
             $student->first_name = $data['first_name'];
             $student->last_name = $data['last_name'];
             $student->email = $data['email'];
+            $student->phone = $data['phone'];
             $student->status = $data['status'];
             $student->resume = $data['resume'];
             $student->user_id = $user->id;
