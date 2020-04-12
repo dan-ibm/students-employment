@@ -82,6 +82,16 @@ class AuthController extends Controller
             return Redirect::to("login")->withSuccess('Great! You have Successfully logged in');
         }
         elseif ($type == 'student') {
+            request()->validate([
+                'username' => 'required|unique:users',
+                //'contact_number' => 'required|contact_number|unique:users',
+                'password' => 'required|min:6',
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'email' => 'required',
+                'phone' => 'required',
+                'status' => 'required'
+            ]);
             $data = $request->all();
 
             $user = new User;
