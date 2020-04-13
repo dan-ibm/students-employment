@@ -3,8 +3,6 @@
     <title>Login</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @extends('layouts.head')
-    @extends('base')
-    @extends('layouts.navbar')
 
 </head>
 <body>

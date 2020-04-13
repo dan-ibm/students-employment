@@ -1,24 +1,46 @@
-<div class="container mb-5 py-2">
+
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand">Welcome back</a>
+        <div class="container">
+        <a class="navbar-brand" href="/">Students Employment</a>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="text-success" >{{ Session::get('username') }}</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
-                </li>
+
             </ul>
-            <form class="form-inline mt-2 mt-md-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+
+            <ul class="navbar-nav ml-auto">
+                @if (session()->has('username'))
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{Session::get('username')}}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{{url('/')}}">Home</a>
+
+                        @if(session()->get('isStudent') == false)
+                            <a class="dropdown-item" href="{{url('/employers/dashboard')}}">Dashboard</a>
+                        @else
+                            <a class="dropdown-item" href="{{url('/students/dashboard')}}">Dashboard</a>
+                        @endif
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="/logout">Logout</a>
+                    </div>
+                </li>
+                @else
+                    <li class="nav-item active">
+                        <a class="text-white" href="/login">Login</a>
+                    </li>
+                @endif
+            </ul>
+        </div>
         </div>
     </nav>
-</div>
+
+
+
+
+
+
+
+
 

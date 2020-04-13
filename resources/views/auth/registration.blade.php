@@ -7,7 +7,7 @@
 
 </head>
 <body>
-<div class="container">
+<div class="container mt-5">
 
     <div class="col-md-8 order-md-1">
         @if ( $_GET['type'] == 'employer')
@@ -85,7 +85,7 @@
                     @endif
                 </div>
                 <hr class="mb-4">
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Sign IN</button>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Sign UP</button>
 
             </form>
     </div>
@@ -183,7 +183,7 @@
 
 
                                             <hr class="mb-4">
-                                            <button class="btn btn-primary btn-lg btn-block" type="submit">Sign IN</button>
+                                            <button class="btn btn-primary btn-lg btn-block" type="submit">Sign UP</button>
                                         </form>
                             @endif
                         </div>
