@@ -137,22 +137,83 @@ class AuthController extends Controller
         return view('auth.resetMail');
     }
 
-    public function PostReset(Request $request)
+    public function postReset(Request $request)
     {
         $this->validate($request, [
            'email'=> 'required|email'
         ]);
 
-        $username = session()->get('user_name');
+        //$username = session()->get('user_name');
         $email = $request->email;
+        $user = User::where('email', $email)->first();
+        if ($user != null) {
 
 
-        $data = array(
-            'email' => $request->email
-        );
 
-        Mail::to('idaniyar97@gmail.com')->send(new SendMail($data, 'Hellooo'));
-        return back()->with('success', 'Thanksss');
+            //generate random token with 6 digits
+            $a = null;
+            for ($i = 0; $i<6; $i++)
+            {
+                $a .= mt_rand(0,9);
+            }
+
+            $data = array(
+                'email' => $request->email,
+                'code' => $a
+            );
+
+            //saving new token
+            $user->remember_token = $a;
+            $user->save();
+
+            Mail::to($data['email'])->send(new SendMail($data, 'Reset Password'));
+            Session::put('email', $data['email']);
+            return view('auth.resetCode', compact('data'));
+        }
+        else {
+            return dd('email does not exists');
+        }
+    }
+
+    public function checkReset(Request $request)
+    {
+        $this->validate($request, [
+            'code'=> 'required'
+        ]);
+        $code = $request->code;
+        $email = Session::get('email');
+        $user = User::where('email', $email)->first();
+        if ($user->remember_token == $code)
+        {
+            return view('auth.resetPassword');
+        }
+        else {
+            return view('layouts.error')->with('error', 'Code is not correct. Try again');
+        }
+
+    }
+
+    public function successReset(Request $request)
+    {
+        $this->validate($request, [
+            'password'=> 'required',
+            'confirmPassword'=> 'required'
+        ]);
+        $email = Session::get('email');
+        $user = User::where('email', $email)->first();
+        $password = $request->password;
+        $confirmPassword = $request->confirmPassword;
+        if ($password == $confirmPassword)
+        {
+            $user->password = Hash::make($password);
+            $user->remember_token = null;
+            $user->save();
+
+            return view('auth.login')->with('success', 'SUCCESSFUL!!!');
+        }
+        else {
+            return view('auth.resetPassword')->with('success', 'BAAAD');
+        }
     }
 
     public function logout() {

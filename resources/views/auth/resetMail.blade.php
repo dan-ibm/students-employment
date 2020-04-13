@@ -1,9 +1,9 @@
 @extends('base')
 @section('main')
 
-    <div class="row">
+    <div class="row" style="margin-left: 30%;">
         <div class="col-md-5 order-md-1">
-            <h3 class="login-heading  mt-3">Login Account</h3>
+            <h3 class="login-heading  mt-3">Reset password</h3>
             <form action="{{url('post-reset')}}" method="POST" id="resForm" class="needs-validation">
                 {{ csrf_field() }}
 

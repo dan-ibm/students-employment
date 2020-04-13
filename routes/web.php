@@ -24,6 +24,8 @@ Route::post('post-registration/{type}', 'AuthController@postRegistration')->name
 Route::get('logout', 'AuthController@logout');
 Route::get('reset', 'AuthController@reset');
 Route::post('post-reset', 'AuthController@postReset');
+Route::post('check-reset', 'AuthController@checkReset');
+Route::post('successful-reset', 'AuthController@successReset');
 
 //employer routes
 Route::apiResource('/employers', 'EmployerController');
