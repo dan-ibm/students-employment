@@ -12,7 +12,8 @@ Use App\Employer;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Session;
-use Mail;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMail;
 
 class AuthController extends Controller
 {
@@ -71,12 +72,12 @@ class AuthController extends Controller
             $user = new User;
             $user->username = $data['username'];
             $user->password = Hash::make($data['password']);
+            $user->email = $data['email'];
             $user->is_student = false;
             $user->save();
             $employer = new Employer;
             $employer->org_name = $data['org_name'];
             $employer->user_id = $user->id;
-            $employer->email = $data['email'];
             $employer->phone = $data['phone'];
             $employer->save();
 
@@ -98,13 +99,13 @@ class AuthController extends Controller
             $user = new User;
             $user->username = $data['username'];
             $user->password = Hash::make($data['password']);
+            $user->email = $data['email'];
             $user->is_student = true;
             $user->save();
 
             $student = new Student;
             $student->first_name = $data['first_name'];
             $student->last_name = $data['last_name'];
-            $student->email = $data['email'];
             $student->phone = $data['phone'];
             $student->status = $data['status'];
             $student->resume = $data['resume'];
@@ -131,13 +132,27 @@ class AuthController extends Controller
         return Redirect::to("login")->withSuccess('Oops! You do not have access');
     }
 
-
-    public function resetPass()
+    public function reset()
     {
-        Mail::send(['text' => 'mail'], ['name', 'Students Employment'], function($message, $email) {
-            $message->to($email, 'Reset pass')->subject('Reset password');
-            $message->from('reminder.saa@gmail.com', 'Reset pass');
-        });
+        return view('auth.resetMail');
+    }
+
+    public function PostReset(Request $request)
+    {
+        $this->validate($request, [
+           'email'=> 'required|email'
+        ]);
+
+        $username = session()->get('user_name');
+        $email = $request->email;
+
+
+        $data = array(
+            'email' => $request->email
+        );
+
+        Mail::to('idaniyar97@gmail.com')->send(new SendMail($data, 'Hellooo'));
+        return back()->with('success', 'Thanksss');
     }
 
     public function logout() {

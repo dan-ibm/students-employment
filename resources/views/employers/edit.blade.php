@@ -34,7 +34,7 @@
                 </div>
                 <div class="form-group">
                     <label for="requirements">Requirements:</label>
-                    <input type="text" class="form-control" name="requirements" value={{ $employer->requirements }} />
+                    <textarea class="form-control" name="requirements" value={{ $employer->requirements }} ></textarea>
                 </div>
                 <div class="form-group">
                     <label for="category">Category:</label>
