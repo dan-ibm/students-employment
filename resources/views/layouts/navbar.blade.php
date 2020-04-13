@@ -1,6 +1,6 @@
 <div class="container mb-5 py-2">
 
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark  align-items-center">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <a class="navbar-brand">Welcome back</a>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
