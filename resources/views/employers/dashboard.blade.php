@@ -21,7 +21,7 @@
 
             <div class = "row px-5 ">
                 <p class="text-secondary">Contacts</p>
-                <p class="text-info px-2">{{ $employer->email }} </p>
+                <p class="text-info px-2">{{ Auth()->user()->email }} </p>
                 <p class="text-secondary">or</p>
                 <p class="text-info px-2">{{ $employer->phone }} </p>
             </div>

@@ -15,7 +15,7 @@
                 </div>
                 <div class = "row px-5">
                     <h4 class = "card-text">Your email: </h4>
-                    <h4 class="text-success">{{ $student->email }} </h4>
+                    <h4 class="text-success">{{ Auth()->user()->email }} </h4>
                 </div>
                 <div class = "row px-5">
                     <h4 class = "card-text">Your phone: </h4>
