@@ -22,7 +22,6 @@
                              <p class="card-text mb-3">{{ $vacancy->title }}</p>
                              <a href="vacancy/{{$vacancy->id}}">See more</a>
                     </div>
-                        {{$vacancies->links()}}
                 </div>
             </div>
     </div>
