@@ -3,7 +3,7 @@
     <title>Update vacancy</title>
 @endsection
 @section('main')
-    <div class="container row">
+    <div class="container row my-5">
         <div class="col-sm-8 offset-sm-2">
             <h1 class="mb-3">Update an employer</h1>
 

@@ -7,15 +7,15 @@
 <div class="container col">
     <div class="row px-5">
         <div class="d-flex p-4 mb-2 rounded" style="font-size: 10em">
-            <svg class="bi bi-house-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M8 3.293l6 6V13.5a1.5 1.5 0 01-1.5 1.5h-9A1.5 1.5 0 012 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 01.5-.5h1a.5.5 0 01.5.5z" clip-rule="evenodd"></path>
-                <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 011.414 0l6.647 6.646a.5.5 0 01-.708.708L8 2.207 1.354 8.854a.5.5 0 11-.708-.708L7.293 1.5z" clip-rule="evenodd"></path>
+            <svg class="bi bi-house-door text-primary mx-2" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M7.646 1.146a.5.5 0 01.708 0l6 6a.5.5 0 01.146.354v7a.5.5 0 01-.5.5H9.5a.5.5 0 01-.5-.5v-4H7v4a.5.5 0 01-.5.5H2a.5.5 0 01-.5-.5v-7a.5.5 0 01.146-.354l6-6zM2.5 7.707V14H6v-4a.5.5 0 01.5-.5h3a.5.5 0 01.5.5v4h3.5V7.707L8 2.207l-5.5 5.5z" clip-rule="evenodd"/>
+                <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 01.5-.5h1a.5.5 0 01.5.5z" clip-rule="evenodd"/>
             </svg>
         </div>
 
         <div class="container">
             <div class="row">
-                <h2 class="text-dark px-4">{{ Auth()->user()->employer->org_name }} </h2>
+                <h2 class="text-primary px-5">{{ Auth()->user()->employer->org_name }} </h2>
             </div>
 
 
@@ -30,9 +30,6 @@
 
             <div class = "row px-5 mb-3">
                 <a href="{{ url('vacancy-create') }}" class="btn btn-success">Create New</a>
-                <div class="px-5">
-                    <a class="btn btn-danger" href="{{url('logout')}}">Logout</a>
-                </div>
             </div>
 
             <div class="px-4">
@@ -40,28 +37,27 @@
                     <table class="table table-striped">
                         <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Position</th>
                             <th>Salary</th>
                             <th>Action</th>
-
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($vacancies as $employer)
                             <tr>
-                                <th><a>{{ $employer->id }}</a></th>
                                 <td><a href="{{url('vacancies')}}/{{$employer->id}}">{{$employer->position}}</a></td>
                                 <td><a>{{ $employer->min_salary }} - {{ $employer->max_salary }}</a></td>
                                 <td>
-                                    <a href="{{ route('vacancy-edit', ['vacancy'=>$employer->id])}}" class="btn btn-primary">Edit</a>
-                                </td>
-                                <td>
-                                    <form action="{{ route('vacancies.destroy', $employer->id)}}" method="post">
+                                    <div class="row">
+                                        <form>
+                                           <a href="{{ route('vacancy-edit', ['vacancy'=>$employer->id])}}" class="btn btn-primary">Edit</a>
+                                        </form>
+                                    <form action="{{ route('vacancies.destroy', $employer->id)}}" method="post" class="mx-3">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger" type="submit">Delete</button>
                                     </form>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

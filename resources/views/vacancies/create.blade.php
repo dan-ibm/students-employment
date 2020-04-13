@@ -3,7 +3,7 @@
     <title>{{ $employer->org_name }} - Create vacancy</title>
 @endsection
 @section('main')
-    <div class="container row">
+    <div class="container row my-5">
             <div class="container col-sm-8 offset-sm-2">
                 <h1 class="mb-3">Add a vacancy</h1>
                 <div>
