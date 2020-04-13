@@ -8,7 +8,7 @@
                 {{ csrf_field() }}
 
                 <div class="form-label-group mb-2">
-                    <input type="text" name="code" id="inputCode" class="form-control" placeholder="{{$data['code']}}" >
+                    <input type="text" name="code" id="inputCode" class="form-control" placeholder="Enter code" >
 
                     @if ($errors->has('code'))
                         <span class="error">{{ $errors->first('code') }}</span>

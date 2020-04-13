@@ -30,7 +30,7 @@
                         @endif
                     </div>
                     <div class="m-2">
-                        <p>Forgot password? Click<a href="#" class="text-primary mx-1">here</a></p>
+                        <p>Forgot password? Click<a href="{{url('reset')}}" class="text-primary mx-1">here</a></p>
                     </div>
 
                     <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Sign In</button>
