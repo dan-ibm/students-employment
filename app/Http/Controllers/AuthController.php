@@ -12,6 +12,7 @@ Use App\Employer;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Session;
+use Mail;
 
 class AuthController extends Controller
 {
@@ -131,27 +132,13 @@ class AuthController extends Controller
     }
 
 
-/*
-    public function create(array $data)
+    public function resetPass()
     {
-        //Employer::create([]);
-
-        $user = new User;
-        $user->username = $data['username'];
-        $user->password = Hash::make($data['password']);
-        $user->save();
-
-        return $user;
-
-        return User::create([
-            'is_student' => '0',
-            'org_name' => $data['org_name'],
-            'username' => $data['username'],
-            'password' => Hash::make($data['password'])
-        ]);
-
+        Mail::send(['text' => 'mail'], ['name', 'Students Employment'], function($message, $email) {
+            $message->to($email, 'Reset pass')->subject('Reset password');
+            $message->from('reminder.saa@gmail.com', 'Reset pass');
+        });
     }
-    */
 
     public function logout() {
         Session::flush();

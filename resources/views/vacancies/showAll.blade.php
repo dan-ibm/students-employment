@@ -3,7 +3,7 @@
     <title>Объявления о работе</title>
 @endsection
 @section('main')
-<div class="container" style="margin-top: 4%; margin-left: 30%">
+<div class="container">
 
     @foreach($vacancies as $vacancy)
         <ul>
@@ -11,6 +11,7 @@
             <p>ЗП от: {{ $vacancy->min_salary }} до {{ $vacancy->max_salary }}</p>
         </ul>
     @endforeach
+    {{$vacancies->links()}}
 
 </div>
 @endsection
