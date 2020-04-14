@@ -1,4 +1,7 @@
-Hello,
-<p>Dear {{ $data['email'] }}</p>
-<p>We sent you code: {{$data['code']}} for resetting password</p>
-<p>Go to http://localhost:8000/reset-password.</p>
+<div class="container">
+    <h1 style="color: red;">Hello, Dear {{ $data['email'] }}</h1>
+    <h4 style="color: darkcyan;">We sent you code: </h4>
+    <h2 style="color: green">{{$data['code']}}</h2>
+    <h4>for resetting password</h4>
+    <h4 style="color: darkgreen;">Thank you for using our service.</h4>
+</div>
