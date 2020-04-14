@@ -32,6 +32,6 @@
         <p>{{ $vacancy->skills }}</p>
     </div>
 
-    <a class="btn btn-outline-primary" href="{{url('/')}}">Go back</a>
+    <a class="btn btn-outline-primary" href="{{url()->previous()}}">Go back</a>
 </div>
 @endsection

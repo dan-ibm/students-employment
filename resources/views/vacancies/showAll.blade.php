@@ -11,8 +11,9 @@
         </div>
     </section>
 
-    @foreach($vacancies as $vacancy)
+
     <div class="container">
+        @foreach($vacancies as $vacancy)
             <div class="col-md-12">
                 <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                     <div class="col p-4 d-flex flex-column position-static">
@@ -24,6 +25,8 @@
                     </div>
                 </div>
             </div>
+        @endforeach
+        <h5 style="margin-left: 45%;">{{$vacancies->links()}}</h5>
     </div>
-    @endforeach
+
 @endsection

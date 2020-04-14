@@ -171,7 +171,7 @@ class AuthController extends Controller
             return view('auth.resetCode', compact('data'));
         }
         else {
-            return dd('email does not exists');
+            return view('layouts.error')->with('error', 'Email does not exists. Try again!');
         }
     }
 

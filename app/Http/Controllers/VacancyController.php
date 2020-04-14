@@ -83,7 +83,7 @@ class VacancyController extends Controller
     public function showAll(Vacancy $vacancy)
     {
         //
-        $vacancies = $vacancy::all();
+        $vacancies = $vacancy::orderBy('updated_at')->paginate('3');
         //dd($empid);
         return view('vacancies.showAll', compact('vacancies'));
     }
