@@ -28,5 +28,6 @@
         @endforeach
         <h5 style="margin-left: 45%;">{{$vacancies->links()}}</h5>
     </div>
-
 @endsection
+
+

@@ -50,7 +50,7 @@
                                 <td>
                                     <div class="row">
                                         <form>
-                                           <a href="{{ route('vacancy-edit', ['vacancy'=>$employer->id])}}" class="btn btn-primary">Edit</a>
+                                           <a href="{{ route('vacancy-edit', ['vacancy'=>$employer->id])}}" class="btn btn-primary">Update</a>
                                         </form>
                                     <form action="{{ route('vacancies.destroy', $employer->id)}}" method="post" class="mx-3">
                                         @csrf

@@ -4,7 +4,8 @@
 @endsection
 @section('main')
 <div class="container">
-    <h1 class="text-primary mt-n3 mb-3">{{ $vacancy->employer->org_name }}</h1>
+    <br>
+    <h1 class="text-primary my-3">{{ $vacancy->employer->org_name }}</h1>
 
     <div>
         <h3 class="text-dark">{{ $vacancy->position }}</h3>
@@ -32,6 +33,6 @@
         <p>{{ $vacancy->skills }}</p>
     </div>
 
-    <a class="btn btn-outline-primary" href="{{url()->previous()}}">Go back</a>
+    <a class="btn btn-outline-primary mb-4" href="{{url()->previous()}}">Go back</a>
 </div>
 @endsection

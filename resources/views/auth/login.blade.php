@@ -60,6 +60,8 @@
     </div>
 </div>
 
-
+<div style="margin-top: 16%;">
+    @extends('layouts.footer')
+</div>
 </body>
 </html>

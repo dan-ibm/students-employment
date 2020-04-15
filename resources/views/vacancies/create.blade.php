@@ -5,7 +5,7 @@
 @section('main')
     <div class="container row my-5">
             <div class="container col-sm-8 offset-sm-2">
-                <h1 class="mb-3">Add a vacancy</h1>
+                <h1 class="mb-3 text-info">Add a vacancy</h1>
                 <div>
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -59,7 +59,7 @@
                             <label class="text-secondary" for="skills">Skills:</label>
                             <input type="text" class="form-control" name="skills"/>
                         </div>
-                        <button type="submit" class="btn btn-primary">Add vacancy</button>
+                        <button type="submit" class="btn btn-success">Add vacancy</button>
                     </form>
                 </div>
             </div>

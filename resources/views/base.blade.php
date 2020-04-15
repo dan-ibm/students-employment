@@ -6,8 +6,12 @@
 </head>
 <body>
     @include('layouts.navbar')
-    <div class="baseClass" style="margin-top: 8%;">
+    <div class="baseClass" style="margin-top: 5%;">
     @yield('main')
     </div>
+
+        @include('layouts.footer')
+
+
 </body>
 </html>
