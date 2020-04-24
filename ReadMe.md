@@ -19,6 +19,10 @@ After starting docker, execute command below:
 ```bash
 make inst
 ```
+Then use this command for migrating database:
+```bash
+make mg
+```
 Stop containers
 ```bash
 make stop
