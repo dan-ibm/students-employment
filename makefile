@@ -8,6 +8,8 @@ container_server    = webserver
 ###   MakeFile for Laravel Crash Course   ###
 ###                                       ###
 #############################################
+inst: #Connect to APP container
+	@docker-compose exec $(container_php) composer install
 
 composer_dep: #install composer dependency >> ./vendors
 	@docker run --rm -v $(CURDIR):/app composer install

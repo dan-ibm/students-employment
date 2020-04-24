@@ -1,6 +1,6 @@
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
-# Laravel crash course
+# Students Employment project
 
 Use:
 Terminal => Linux or MacOs (... or Windows)
@@ -15,7 +15,10 @@ Load docker images and create containers || start containers
 ```bash
 make start
 ```
-
+After starting docker, execute command below:
+```bash
+make inst
+```
 Stop containers
 ```bash
 make stop
