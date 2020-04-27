@@ -46,10 +46,14 @@ class AuthController extends Controller
             Session::put('isStudent', $user->is_student);
 
             if ($stud == true) {
+                $student = Student::where('user_id', $id)->first();
+                Session::put('student_id', $student->id);
                 //route('dashboard', 'students');
                 return redirect()->intended('students/dashboard');
             }
             elseif ($stud == false)
+            $employer = Employer::where('user_id', $id)->first();
+            Session::put('employer_id', $employer->id);
                 return redirect()->intended('employers/dashboard');
         }
         return Redirect::to("login")->withSuccess('Oops! You have entered invalid credentials');

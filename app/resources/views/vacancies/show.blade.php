@@ -34,6 +34,8 @@
         <p>{{ $vacancy->skills }}</p>
     </div>
 
+    @if(null !== Session::get('employer_id') && $vacancy->employer_id == Session::get('employer_id') )
+
     <div>
         <strong class="text-info">Students:</strong>
 
@@ -47,6 +49,17 @@
         <a href="/students/id/{{ $student->id }}">{{ $student->first_name }}, </a>
         @endforeach
     </div>
+
+    @endif
+
+    @if(null !== Session::get('student_id'))
+
+    <div>
+    <a class="btn btn-primary"href="#">Откликнуться</a>
+    </div>
+    <br>
+
+    @endif
 
     <a class="btn btn-outline-primary mb-4" href="{{url()->previous()}}">Go back</a>
 </div>

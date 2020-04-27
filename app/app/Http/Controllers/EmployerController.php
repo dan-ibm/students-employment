@@ -19,7 +19,11 @@ class EmployerController extends Controller
         $userid = Session::get('user_id');
         $employer = Employer::where('user_id', $userid)->first();
         $vacancies = $employer->vacancies;
-        return view('employers.dashboard', ['employer' => $employer, 'vacancies' => $vacancies]);
+        $students = $vacancies->students;
+        return view('employers.dashboard', [
+            'employer' => $employer, 
+            'vacancies' => $vacancies,
+            'students' => $students]);
     }
 
     /**
