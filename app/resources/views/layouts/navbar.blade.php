@@ -17,10 +17,12 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="{{url('/')}}">Home</a>
 
-                        @if(session()->get('isStudent') == false)
+                        @if(session()->get('role') == 'employer')
                             <a class="dropdown-item" href="{{url('/employers/dashboard')}}">Dashboard</a>
-                        @else
+                        @elseif(session()->get('role') == 'student')
                             <a class="dropdown-item" href="{{url('/students/dashboard')}}">Dashboard</a>
+                        @elseif(session()->get('role') == 'teacher')
+                            <a class="dropdown-item" href="{{url('/teachers/dashboard')}}">Dashboard</a>
                         @endif
                         <a class="dropdown-item" href="#">Another action</a>
                         <a class="dropdown-item" href="/logout">Logout</a>

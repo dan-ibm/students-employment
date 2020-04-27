@@ -51,7 +51,7 @@
         <strong class="text-info">Students:</strong>
         @foreach($students as $student)
 
-        <a href="/students/id/{{ $student->id }}">{{ $student->first_name }}, </a>
+        <a href="/student/{{ $student->id }}">{{ $student->first_name }}, </a>
         @endforeach
     </div>
 

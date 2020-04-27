@@ -111,8 +111,16 @@ class StudentController extends Controller
         return $file;
 
     }
-    public function showOne() {
-        $student = Student::where('id', 2)->first();
-        return view('students.resume', compact('student'));
+
+    public function showAll(Student $student)
+    {
+        //
+        if (Session::get('role') == 'teacher' || Session::get('role') == 'employer') {
+            $students = $student::all();
+            return view('students.showAll', compact('students'));
+        }
+        else {
+            return view('layouts.error')->with('error', 'You have not enough permissions.');
+        }
     }
 }

@@ -44,12 +44,11 @@ class AuthController extends Controller
             $id = $user->id;
             Session::put('user_id', $id);
             Session::put('username', $user->username);
-            Session::put('isStudent', $user->is_student);
+            Session::put('role', $user->role);
 
             if ($role == "student") {
                 $student = Student::where('user_id', $id)->first();
                 Session::put('student_id', $student->id);
-                //route('dashboard', 'students');
                 return redirect()->intended('students/dashboard');
             }
             elseif ($role == "employer") {
