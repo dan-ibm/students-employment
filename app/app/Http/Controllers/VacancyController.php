@@ -97,16 +97,23 @@ class VacancyController extends Controller
         $students = $vacancy->students;
         return view('vacancies.show', [
             'vacancy' => $vacancy,
-            'students' => $students
+            'students' => $students,
+            'msg' => ''
         ]);
 
     }
 
     public function request($vacid, $studid) {
         $vacancy = Vacancy::where('id', $vacid)->first();
-        $vacancy->students()->attach($studid);
 
-        return Redirect(url()->previous());
+        if ($vacancy->students->contains($studid)) {
+            $vacancy->students()->detach($studid);
+            return $this->show($vacid)->with('msg', 'not-success');
+        }
+        else {
+            $vacancy->students()->attach($studid);
+            return $this->show($vacid)->with('msg', 'successful');
+        }
 
     }
 

@@ -4,6 +4,12 @@
 @endsection
 @section('main')
 <div class="container">
+    @if($msg == 'successful')
+    <div class="alert alert-success">Vacancy request successfully added!</div>
+    @endif
+    @if($msg == 'not-success')
+    <div class="alert alert-danger">You're already requested this vacancy!</div>
+    @endif
     <br>
     <h1 class="text-primary my-3">{{ $vacancy->employer->org_name }}</h1>
 
@@ -38,8 +44,7 @@
 
     <div>
         <strong class="text-info">Students:</strong>
-
-        <p style='color:blue;'>{{ $vacancy->students()->pluck('first_name')->implode(', ') }}</p>
+        <p style='color:blue;'>{{ $vacancy->students()->pluck('student_id') }}</p>
     </div>
 
     <div>
