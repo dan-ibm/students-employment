@@ -1,6 +1,6 @@
 @extends('base')
 @extends('layouts.navbar')
-<title>Dashboard Student</title>
+<title>Dashboard Teacher</title>
 
 @section('main')
     <div class="container col">
@@ -13,30 +13,23 @@
 
             <div class="container">
                 <div class="row">
-                    <h2 class="text-primary px-2">{{ $student->first_name }} {{ $student->last_name }} - </h2>
-                    <h2 class="text-secondary">{{ $student->status }}</h2>
+                    <h2 class="text-primary px-2">{{ $teacher->first_name }} {{ $teacher->last_name }} - </h2>
+                    <h2 class="text-secondary">Teacher</h2>
                 </div>
 
                 <div class = "row px-2">
                     <p class="text-secondary">Contacts</p>
                     <p class="text-info px-2">{{ Auth()->user()->email }} </p>
                     <p class="text-secondary">or</p>
-                    <p class="text-info px-2">{{ $student->phone }}</p>
+                    <p class="text-info px-2">{{ $teacher->phone }}</p>
                 </div>
 
-                <div class="row px-2">
-                     <h4 class = "text-info">Active responses: </h4>
-                     @foreach($vacancies as $vacancy)
-                     <a href="/vacancies/{{$vacancy->id}}"><h4 class="text-success">{{ $vacancy->title }} </h4></a>
-                     @endforeach
-                </div>
-
-                <div class="row px-2">
-                     <h4 class = "text-info">Grades from teachers: </h4>
-                     @foreach($student->teachers as $teacher)
-                     <a href="#"><h4 class="text-success">{{ $teacher->pivot->grade }} </h4></a>
-                     @endforeach
-                </div>
+                <ul>
+                    @foreach($teacher->students as $student)
+                        <a href="/students/id/{{ $student->id }}"><li>{{$student->first_name}}</li></a>
+                        <p>Grade: {{ $student->pivot->comment }}</p>
+                    @endforeach
+                </ul>
 
 
             </div>

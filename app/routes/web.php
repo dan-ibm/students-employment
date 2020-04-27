@@ -42,6 +42,8 @@ Route::get('resume','StudentController@showOne');
 Route::get('resume/generate-pdf','StudentController@generatePDF');
 Route::get('students/id/{id}', 'StudentController@show');
 
+//teacher routes
+Route::get('teachers/dashboard', 'TeacherController@index');
 
 //vacancy routes
 Route::apiResource('/vacancies', 'VacancyController');
@@ -56,5 +58,8 @@ Route::get('vacancies/{vacancy}/edit', 'VacancyController@edit')->name('vacancy-
 
 
 
-//Route::resource('employers','EmployerController');
+//admin routes
+Route::get('admin/dashboard', 'AdminController@index');
+Route::get('admin/create', 'AdminController@create')->name('teacher-create');
+Route::post('admin/post-create', 'AdminController@store')->name('post-teacher');
 //Route::get('employers/{id}/edit/','EmployerController@edit');

@@ -107,7 +107,6 @@ class VacancyController extends Controller
         $vacancy = Vacancy::where('id', $vacid)->first();
 
         if ($vacancy->students->contains($studid)) {
-            $vacancy->students()->detach($studid);
             return $this->show($vacid)->with('msg', 'not-success');
         }
         else {

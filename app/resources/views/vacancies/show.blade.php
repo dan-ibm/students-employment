@@ -57,10 +57,19 @@
 
     @endif
 
-    @if(null !== Session::get('student_id'))
+    @if(null !== Session::get('student_id') && !$vacancy->students->contains(Session::get('student_id')))
 
     <div>
     <a class="btn btn-primary"href="/vacancy-request/{{$vacancy->id}}/{{Session::get('student_id')}}">Откликнуться</a>
+    </div>
+    <br>
+
+    @endif
+
+    @if(null !== Session::get('student_id') && $vacancy->students->contains(Session::get('student_id')))
+
+    <div>
+    <a class="btn btn-primary disabled"href="/vacancy-request/{{$vacancy->id}}/{{Session::get('student_id')}}">Откликнуться</a>
     </div>
     <br>
 

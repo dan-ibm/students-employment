@@ -23,4 +23,9 @@ class Student extends Model
     public function vacancies() {
         return $this->belongsToMany('App\Vacancy', 'vacancy_student', 'student_id', 'vacancy_id');
     }
+
+    public function teachers() {
+        return $this->belongsToMany('App\Teacher', 'student_teacher', 'student_id', 'teacher_id')->
+        withPivot('grade', 'comment');
+    }
 }

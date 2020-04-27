@@ -20,6 +20,7 @@ class StudentController extends Controller
         $student = Student::where('user_id', $userid)->first();
         $vacancies = $student->vacancies;
         $username = $student->user;
+
         return view('students.dashboard', [
             'student' => $student, 
             'user' => $username,
