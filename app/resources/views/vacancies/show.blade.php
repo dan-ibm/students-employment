@@ -55,7 +55,7 @@
     @if(null !== Session::get('student_id'))
 
     <div>
-    <a class="btn btn-primary"href="#">Откликнуться</a>
+    <a class="btn btn-primary"href="/vacancy-request/{{$vacancy->id}}/{{Session::get('student_id')}}">Откликнуться</a>
     </div>
     <br>
 

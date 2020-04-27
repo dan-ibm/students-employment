@@ -47,6 +47,8 @@ Route::get('students/id/{id}', 'StudentController@show');
 Route::apiResource('/vacancies', 'VacancyController');
 Route::get('vacancy/{id}', 'VacancyController@show');
 Route::post('vacancy-post', 'VacancyController@store');
+Route::get('vacancy-request/{vacid}/{studid}', 'VacancyController@request');
+
 Route::get('vacancy-create', 'VacancyController@create');
 
 Route::get('vacancies/{vacancy}/edit', 'VacancyController@edit')->name('vacancy-edit');

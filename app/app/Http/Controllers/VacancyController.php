@@ -102,6 +102,14 @@ class VacancyController extends Controller
 
     }
 
+    public function request($vacid, $studid) {
+        $vacancy = Vacancy::where('id', $vacid)->first();
+        $vacancy->students()->attach($studid);
+
+        return Redirect(url()->previous());
+
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
