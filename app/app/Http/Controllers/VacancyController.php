@@ -19,7 +19,11 @@ class VacancyController extends Controller
         //
         $user_id = Session::get('user_id');
         $vacancies = Employer::where('user_id', $user_id)->first()->vacancies;
-        return view('vacancies.index',compact('vacancies'));
+        $students = $vacancies->students();
+        return view('vacancies.index', [
+            'vacancies' => $vacancies,
+            'students' => $students
+        ]);
     }
 
     /**
@@ -90,7 +94,11 @@ class VacancyController extends Controller
 
     public function show($id) {
         $vacancy = Vacancy::where('id', $id)->first();
-        return view('vacancies.show', compact('vacancy'));
+        $students = $vacancy->students;
+        return view('vacancies.show', [
+            'vacancy' => $vacancy,
+            'students' => $students
+        ]);
 
     }
 

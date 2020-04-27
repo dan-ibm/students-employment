@@ -22,4 +22,8 @@ class Vacancy extends Model
         return $this->belongsTo(Employer::class);
     }
 
+    public function students() {
+        return $this->belongsToMany('App\Student', 'vacancy_student', 'vacancy_id', 'student_id');
+    }
+
 }

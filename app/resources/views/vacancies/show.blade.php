@@ -30,7 +30,22 @@
 
     <div>
         <strong class="text-info">Skills:</strong>
+
         <p>{{ $vacancy->skills }}</p>
+    </div>
+
+    <div>
+        <strong class="text-info">Students:</strong>
+
+        <p style='color:blue;'>{{ $vacancy->students()->pluck('first_name')->implode(', ') }}</p>
+    </div>
+
+    <div>
+        <strong class="text-info">Students:</strong>
+        @foreach($students as $student)
+
+        <a href="/students/id/{{ $student->id }}">{{ $student->first_name }}, </a>
+        @endforeach
     </div>
 
     <a class="btn btn-outline-primary mb-4" href="{{url()->previous()}}">Go back</a>

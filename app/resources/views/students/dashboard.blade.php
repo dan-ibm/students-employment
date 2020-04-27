@@ -25,8 +25,10 @@
                 </div>
 
                 <div class="row px-2">
-                     <h4 class = "text-info">Resume: </h4>
-                     <h4 class="text-success">{{ $student->resume }} </h4>
+                     <h4 class = "text-info">Active responses: </h4>
+                     @foreach($vacancies as $vacancy)
+                     <a href="/vacancies/{{$vacancy->id}}"><h4 class="text-success">{{ $vacancy->title }} </h4></a>
+                     @endforeach
                 </div>
 
 

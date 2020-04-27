@@ -19,4 +19,8 @@ class Student extends Model
     public function user() {
         return $this->belongsTo(User::class);
     }
+
+    public function vacancies() {
+        return $this->belongsToMany('App\Vacancy', 'vacancy_student', 'student_id', 'vacancy_id');
+    }
 }

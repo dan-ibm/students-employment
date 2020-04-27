@@ -40,6 +40,7 @@ Route::get('employers/dashboard', 'EmployerController@index');
 Route::get('students/dashboard', 'StudentController@index');
 Route::get('resume','StudentController@showOne');
 Route::get('resume/generate-pdf','StudentController@generatePDF');
+Route::get('students/id/{id}', 'StudentController@show');
 
 
 //vacancy routes

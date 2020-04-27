@@ -18,8 +18,12 @@ class StudentController extends Controller
     {
         $userid = Session::get('user_id');
         $student = Student::where('user_id', $userid)->first();
+        $vacancies = $student->vacancies;
         $username = $student->user;
-        return view('students.dashboard', ['student' => $student, 'user' => $username]);
+        return view('students.dashboard', [
+            'student' => $student, 
+            'user' => $username,
+            'vacancies' => $vacancies]);
     }
 
     /**
@@ -49,9 +53,13 @@ class StudentController extends Controller
      * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function show(Student $student)
-    {
-        //
+    public function show($id) {
+        $student = Student::where('id', $id)->first();
+        $vacancies = $student->vacancies;
+        return view('students.show', [
+            'student' => $student,
+            'vacancies' => $vacancies
+        ]);
     }
 
     /**
