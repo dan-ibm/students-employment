@@ -24,6 +24,10 @@
                     <p class="text-info px-2">{{ $teacher->phone }}</p>
                 </div>
 
+                <div class = "row px-5 mb-3">
+                    <a href='/students/all' class='btn btn-primary'>List of Students</a>
+                </div>
+
                 <ul>
                     @foreach($teacher->students as $student)
                         <a href="/student/{{ $student->id }}"><li>{{$student->first_name}}</li></a>
