@@ -46,7 +46,7 @@ Route::get('students/all', 'StudentController@showAll');
 //teacher routes
 Route::get('teachers/dashboard', 'TeacherController@index');
 Route::get('grade-student', 'TeacherController@create');
-Route::get('postgrade/{studid}/{teacherid}', 'TeacherController@postgrade')->name('post-grade');
+Route::post('postgrade', 'TeacherController@postgrade')->name('post-grade');
 
 //vacancy routes
 Route::apiResource('/vacancies', 'VacancyController');

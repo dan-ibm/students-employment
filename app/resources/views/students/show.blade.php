@@ -22,14 +22,14 @@
         @endforeach
     </div>
 
-    @if(null !== Session::get('teacher_id') && $student->teachers->contains(Session::get('teacher_id')))
+    @if(null !== Session::get('teacher_id') && !$student->teachers->contains(Session::get('teacher_id')))
 
     <div>
     <a class="btn btn-primary"href="/grade-student?student_id={{$student->id}}&teacher_id={{Session::get('teacher_id')}}">Оставить оценку</a>
     </div>
     <br>
 
-    @elseif(null !== Session::get('teacher_id') && !$student->teachers->contains(Session::get('teacher_id')))
+    @elseif(null !== Session::get('teacher_id') && $student->teachers->contains(Session::get('teacher_id')))
 
     <div>
     <a class="btn btn-primary disabled"href="#">Оставить оценку</a>

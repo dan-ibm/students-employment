@@ -5,7 +5,7 @@
 @section('main')
 <div class="container">
     <h4 class="mb-3 tex">Grade a Student</h4>
-    <form action="{{ route('post-grade', $_GET['student_id'], $$_GET['teacher_id']) }}" method="POST" id="regForm">
+    <form action="{{ route('post-grade') }}" method="POST" id="regForm">
         {{ csrf_field() }}
         <div class="row text-secondary">
             <div class="form-label-group col-md-6 mb-3">
@@ -25,12 +25,14 @@
             </div>
 
             <div class="form-label-group col-md-6 mb-3">
-                <label for="lastName">Student</label>
-                <input type="text" name="comment" id="inputComment" class="form-control" placeholder="{{$student_id}}">
+                <label for="student">Student</label>
+                <input type="text" name="student" id="inputComment" class="form-control" placeholder="{{$_GET['student_id']}}">
                 <div class="invalid-feedback">
                     Valid comment is required.
                 </div>
             </div>
+            <input type="hidden" id="student_id" name="student_id" value="{{$_GET['student_id']}}">
+            <input type="hidden" id="teacher_id" name="teacher_id" value="{{$_GET['teacher_id']}}">
         </div>
 
 

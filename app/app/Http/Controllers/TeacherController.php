@@ -44,17 +44,17 @@ class TeacherController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function postgrade(Request $request, $studid, $teacherid)
+    public function postgrade(Request $request)
     {
         request()->validate([
             'grade' => 'required',
-            'comment' => ''
+            'comment' => 'required'
         ]);
 
         $data = $request->all();
 
-        $teacher = Teacher::where('id', $teacherid)->first();
-        $teacher->students()->attach($studid, [
+        $teacher = Teacher::where('id', $request->get('teacher_id'))->first();
+        $teacher->students()->attach($request->get('student_id'), [
             'grade' => $data['grade'],
             'comment' => $data['comment']]);
         return redirect('/')->with('success', 'Teacher Saved');
