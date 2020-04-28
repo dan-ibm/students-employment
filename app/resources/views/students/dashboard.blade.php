@@ -25,14 +25,14 @@
                 </div>
 
                 <div class="row px-2">
-                     <h4 class = "text-info">Active responses: </h4>
+                     <h4 class = "text-secondary">My vacancies: </h4>
                      @foreach($vacancies as $vacancy)
-                     <a href="/vacancies/{{$vacancy->id}}"><h4 class="text-success">{{ $vacancy->title }} </h4></a>
+                        <a href="/vacancies/{{$vacancy->id}}"><h5 class="text-info ml-2 pt-1">{{ $vacancy->position }},</h5></a>
                      @endforeach
                 </div>
 
                 <div class="row px-2">
-                     <h4 class = "text-info">Grades from teachers: </h4>
+                     <h4 class = "text-secondary">My grades: </h4>
                      @foreach($student->teachers as $teacher)
                      <a href="#"><h4 class="text-success">{{ $teacher->pivot->grade }} </h4></a>
                      @endforeach
