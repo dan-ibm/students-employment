@@ -26,7 +26,7 @@
 
                 <ul>
                     @foreach($teacher->students as $student)
-                        <a href="/students/id/{{ $student->id }}"><li>{{$student->first_name}}</li></a>
+                        <a href="/student/{{ $student->id }}"><li>{{$student->first_name}}</li></a>
                         <p>Grade: {{ $student->pivot->comment }}</p>
                     @endforeach
                 </ul>

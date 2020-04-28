@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Teacher;
+use App\Student;
 use Illuminate\Http\Request;
 use Session;
 
@@ -30,6 +31,10 @@ class TeacherController extends Controller
      */
     public function create()
     {
+        if (Session::get('teacher_id'))
+        return view('teachers.grade');
+        else
+        return view('layouts.error')->with('error', 'You are not a teacher!');
         //
     }
 
@@ -39,9 +44,20 @@ class TeacherController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function postgrade(Request $request, $studid, $teacherid)
     {
-        //
+        request()->validate([
+            'grade' => 'required',
+            'comment' => ''
+        ]);
+
+        $data = $request->all();
+
+        $teacher = Teacher::where('id', $teacherid)->first();
+        $teacher->students()->attach($studid, [
+            'grade' => $data['grade'],
+            'comment' => $data['comment']]);
+        return redirect('/')->with('success', 'Teacher Saved');
     }
 
     /**

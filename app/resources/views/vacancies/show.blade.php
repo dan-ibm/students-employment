@@ -4,14 +4,8 @@
 @endsection
 @section('main')
 <div class="container">
-    @if($msg == 'successful')
-    <div class="alert alert-success">Vacancy request successfully added!</div>
-    @endif
-    @if($msg == 'not-success')
-    <div class="alert alert-danger">You're already requested this vacancy!</div>
-    @endif
     <br>
-    <h1 class="text-primary my-3">{{ $vacancy->employer->org_name }}</h1>
+    <h1 class="text-primary my-2">{{ $vacancy->employer->org_name }}</h1>
 
     <div>
         <h3 class="text-dark">{{ $vacancy->position }}</h3>
@@ -21,31 +15,31 @@
     <br>
     <div>
         <strong class="text-info">Requirments: </strong>
-        <p>{{ $vacancy->requirements }}</p>
+        <p class="text-dark">{{ $vacancy->requirements }}</p>
      </div>
 
     <div>
         <strong class="text-info">Responsibilities:</strong>
-        <p>{{ $vacancy->responsibilities }}</p>
+        <p class="text-dark">{{ $vacancy->responsibilities }}</p>
     </div>
 
     <div>
         <strong class="text-info">Terms:</strong>
-        <p>{{ $vacancy->terms }}</p>
+        <p class="text-dark">{{ $vacancy->terms }}</p>
     </div>
 
     <div>
         <strong class="text-info">Skills:</strong>
-
-        <p>{{ $vacancy->skills }}</p>
+        <p class="text-dark">{{ $vacancy->skills }}</p>
     </div>
 
     @if(null !== Session::get('employer_id') && $vacancy->employer_id == Session::get('employer_id') )
 
-    <div>
-        <strong class="text-info">Students:</strong>
-        <p style='color:blue;'>{{ $vacancy->students()->pluck('student_id') }}</p>
-    </div>
+{{--    <div>--}}
+{{--        <strong class="text-info">Students:</strong>--}}
+
+{{--        <p style='color:blue;'>{{ $vacancy->students()->pluck('first_name')->implode(', ') }}</p>--}}
+{{--    </div>--}}
 
     <div>
         <strong class="text-info">Students:</strong>
@@ -75,6 +69,6 @@
 
     @endif
 
-    <a class="btn btn-outline-primary mb-4" href="{{url()->previous()}}">Go back</a>
+    <a class="btn btn-outline-primary mt-4" href="{{url()->previous()}}">Go back</a>
 </div>
 @endsection
