@@ -35,8 +35,6 @@
             <input type="hidden" id="teacher_id" name="teacher_id" value="{{$_GET['teacher_id']}}">
         </div>
 
-
-        <hr class="mb-4">
         <button class="btn btn-primary btn-lg" type="submit">Save grade</button>
     </form>
 </div>

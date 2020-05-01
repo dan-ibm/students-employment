@@ -3,9 +3,10 @@
     <title>Admin</title>
 @endsection
 @section('main')
-
-<div class = "row px-5 mb-3">
-    <a href="{{ url('admin/create') }}" class="btn btn-success">Create Teacher</a>
+<div class="container">
+    <div class = "row px-5 my-3">
+        <a href="{{ url('admin/create') }}" class="my-3 btn btn-success">Create Teacher</a>
+    </div>
 </div>
 
 @endsection

@@ -25,16 +25,28 @@
                 </div>
 
                 <div class = "row px-5 mb-3">
-                    <a href='/students/all' class='btn btn-primary'>List of Students</a>
+                    <a href='/students/all' class='row btn btn-primary'>List of Students</a>
                 </div>
 
-                <ul>
+                <h5 class="text-info">You graded students</h5>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Comment</th>
+                        <th scope="col">Grade</th>
+                    </tr>
+                    </thead>
+                <tbody>
+                <tr>
                     @foreach($teacher->students as $student)
-                        <a href="/student/{{ $student->id }}"><li>{{$student->first_name}}</li></a>
-                        <p>Grade: {{ $student->pivot->comment }}</p>
+                        <td><a href="/student/{{ $student->id }}">{{$student->first_name}} {{$student->last_name}}</a></td>
+                        <td>{{ $student->pivot->comment }}</td>
+                        <td>{{ $student->pivot->grade }}</td>
                     @endforeach
-                </ul>
-
+                </tr>
+                </tbody>
+                </table>
 
             </div>
         </div>
