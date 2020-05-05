@@ -75,8 +75,6 @@
 
         </div>
 
-
-        <hr class="mb-4">
         <button class="btn btn-primary btn-lg" type="submit">Register</button>
     </form>
 </div>
