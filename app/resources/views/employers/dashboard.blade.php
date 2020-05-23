@@ -26,6 +26,10 @@
                 <p class="text-info px-2">{{ $employer->phone }} </p>
             </div>
 
+            <div class = "px-5 mb-3">
+                    <a href='/students/all' class='row btn btn-primary'>List of Students</a>
+            </div>
+
 
 
             <div class = "row px-5 mb-3">

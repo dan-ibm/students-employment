@@ -35,11 +35,6 @@
 
     @if(null !== Session::get('employer_id') && $vacancy->employer_id == Session::get('employer_id') )
 
-{{--    <div>--}}
-{{--        <strong class="text-info">Students:</strong>--}}
-
-{{--        <p style='color:blue;'>{{ $vacancy->students()->pluck('first_name')->implode(', ') }}</p>--}}
-{{--    </div>--}}
 
     <div>
         <strong class="text-info">Students:</strong>
@@ -63,7 +58,7 @@
     @if(null !== Session::get('student_id') && $vacancy->students->contains(Session::get('student_id')))
 
     <div>
-    <a class="btn btn-primary disabled"href="/vacancy-request/{{$vacancy->id}}/{{Session::get('student_id')}}">Respond</a>
+    <a class="btn btn-warning"href="/vacancy-request-not/{{$vacancy->id}}/{{Session::get('student_id')}}">Not respond</a>
     </div>
     <br>
 

@@ -3,7 +3,7 @@
     <title>{{ $employer->org_name }} - Create vacancy</title>
 @endsection
 @section('main')
-    <div class="container row my-5">
+    <div class="container">
             <div class="container col-sm-8 offset-sm-2">
                 <h1 class="mb-3 text-info">Add a vacancy</h1>
                 <div>
@@ -33,15 +33,15 @@
 
                         <div class="form-group">
                             <label class="text-secondary" for="responsibilities">Responsibilities:</label>
-                            <input type="text" class="form-control" name="responsibilities"/>
+                            <textarea class="form-control" id="responsibilities" name="responsibilities" rows="6"></textarea>
                         </div>
                         <div class="form-group">
                             <label class="text-secondary" for="requirements">Requirements:</label>
-                            <input type="text" class="form-control" name="requirements"/>
+                            <textarea class="form-control" id="requirements" name="requirements" rows="5"></textarea>
                         </div>
                         <div class="form-group">
                             <label class="text-secondary" for="terms">Terms:</label>
-                            <input type="text" class="form-control" name="terms"/>
+                            <textarea class="form-control" id="terms" name="terms" rows="4"></textarea>
                         </div>
 
                         <div class="row">
@@ -57,7 +57,7 @@
 
                         <div class="form-group">
                             <label class="text-secondary" for="skills">Skills:</label>
-                            <input type="text" class="form-control" name="skills"/>
+                            <textarea class="form-control" id="skills" name="skills" rows="4"></textarea>
                         </div>
                         <button type="submit" class="btn btn-success">Add vacancy</button>
                     </form>

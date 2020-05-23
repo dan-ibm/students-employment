@@ -16,7 +16,7 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        $userid = Session::get('user_id');
+        $userid = session()->get('user_id');
         $teacher = Teacher::where('user_id', $userid)->first();
         $username = $teacher->user;
         return view('teachers.dashboard', [
@@ -31,7 +31,7 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        if (Session::get('teacher_id'))
+        if (session()->get('teacher_id'))
         return view('teachers.grade');
         else
         return view('layouts.error')->with('error', 'You are not a teacher!');

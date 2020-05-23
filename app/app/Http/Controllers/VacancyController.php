@@ -116,6 +116,13 @@ class VacancyController extends Controller
 
     }
 
+    public function requestNot($vacid, $studid) {
+        $vacancy = Vacancy::where('id', $vacid)->first();
+        $vacancy->students()->detach($studid);
+        return $this->show($vacid)->with('msg', 'successful');
+
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

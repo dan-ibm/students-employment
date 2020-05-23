@@ -38,13 +38,15 @@
                     </tr>
                     </thead>
                 <tbody>
-                <tr>
+                
                     @foreach($teacher->students as $student)
+                    <tr>
                         <td><a href="/student/{{ $student->id }}">{{$student->first_name}} {{$student->last_name}}</a></td>
                         <td>{{ $student->pivot->comment }}</td>
                         <td>{{ $student->pivot->grade }}</td>
+                        </tr>
                     @endforeach
-                </tr>
+                
                 </tbody>
                 </table>
 

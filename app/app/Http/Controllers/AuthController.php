@@ -42,32 +42,32 @@ class AuthController extends Controller
             $user = Auth()->user();
             $role = $user->role;
             $id = $user->id;
-            Session::put('user_id', $id);
-            Session::put('username', $user->username);
-            Session::put('role', $user->role);
+            session()->put('user_id', $id);
+            session()->put('username', $user->username);
+            session()->put('role', $user->role);
 
             if ($role == "student") {
                 $student = Student::where('user_id', $id)->first();
-                Session::put('student_id', $student->id);
+                session()->put('student_id', $student->id);
                 return redirect()->intended('students/dashboard');
             }
             elseif ($role == "employer") {
                 $employer = Employer::where('user_id', $id)->first();
-                Session::put('employer_id', $employer->id);
+                session()->put('employer_id', $employer->id);
                 return redirect()->intended('employers/dashboard');
             }
 
             elseif ($role == "teacher") {
                 $teacher = Teacher::where('user_id', $id)->first();
-                Session::put('teacher_id', $teacher->id);
+                session()->put('teacher_id', $teacher->id);
                 return redirect()->intended('teachers/dashboard');
             }
         }
         if ($request->username == "admin" && $request->password == "admin") {
-            Session::put('username', 'admin');
+            session()->put('username', 'admin');
             return redirect()->intended('admin/dashboard');
         }
-        return Redirect::to("login")->withSuccess('Oops! You have entered invalid credentials');
+        return redirect()->to("login")->withSuccess('Oops! You have entered invalid credentials');
     }
 
     public function postRegistration($type, Request $request)
@@ -96,7 +96,7 @@ class AuthController extends Controller
             $employer->phone = $data['phone'];
             $employer->save();
 
-            return Redirect::to("login")->withSuccess('Great! You have Successfully logged in');
+            return redirect()->to("login")->withSuccess('Great! You have Successfully logged in');
         }
         elseif ($type == 'student') {
             request()->validate([
@@ -127,7 +127,7 @@ class AuthController extends Controller
             $student->user_id = $user->id;
             $student->save();
 
-            return Redirect::to("login")->withSuccess('Great! You have Successfully logged in');
+            return redirect()->to("login")->withSuccess('Great! You have Successfully logged in');
 
         }
     }
@@ -138,16 +138,16 @@ class AuthController extends Controller
         if(Auth::check()){
             $user = Auth()->user();
             if ($user->role == "employer") {
-                return Redirect::to("employers/dashboard")->withSuccess('Oops! You do not have access');
+                return redirect()->to("employers/dashboard")->withSuccess('Oops! You do not have access');
             }
             elseif ($user->role == "student") {
-                return Redirect::to("students/dashboard")->withSuccess('Oops! You do not have access');
+                return redirect()->to("students/dashboard")->withSuccess('Oops! You do not have access');
             }
             elseif ($user->role == "teacher") {
-                return Redirect::to("teachers/dashboard")->withSuccess('Oops! You do not have access');
+                return redirect()->to("teachers/dashboard")->withSuccess('Oops! You do not have access');
             }
         }
-        return Redirect::to("login")->withSuccess('Oops! You do not have access');
+        return redirect()->to("login")->withSuccess('Oops! You do not have access');
     }
 
     public function reset()
@@ -185,7 +185,7 @@ class AuthController extends Controller
             $user->save();
 
             Mail::to($data['email'])->send(new SendMail($data, 'Reset Password'));
-            Session::put('email', $data['email']);
+            session()->put('email', $data['email']);
             return view('auth.resetCode', compact('data'));
         }
         else {
@@ -199,7 +199,7 @@ class AuthController extends Controller
             'code'=> 'required'
         ]);
         $code = $request->code;
-        $email = Session::get('email');
+        $email = session()->get('email');
         $user = User::where('email', $email)->first();
         if ($user->remember_token == $code)
         {
@@ -217,7 +217,7 @@ class AuthController extends Controller
             'password'=> 'required',
             'confirmPassword'=> 'required'
         ]);
-        $email = Session::get('email');
+        $email = session()->get('email');
         $user = User::where('email', $email)->first();
         $password = $request->password;
         $confirmPassword = $request->confirmPassword;
@@ -235,7 +235,7 @@ class AuthController extends Controller
     }
 
     public function logout() {
-        Session::flush();
+        session()->flush();
         Auth::logout();
         return Redirect('login');
     }

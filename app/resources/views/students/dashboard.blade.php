@@ -33,9 +33,14 @@
 
                 <div class="row px-2">
                      <h4 class = "text-secondary">My grades: </h4>
+                     <ul>
                      @foreach($student->teachers as $teacher)
-                     <a href="#"><h4 class="text-success ml-2">{{ $teacher->pivot->grade }}, </h4></a>
+                     <li>
+                     <h4 class="text-success ml-2">{{ $teacher->pivot->grade }} - <a href="#">{{ $teacher->first_name }} {{ $teacher->last_name }}</h4></a>
+                     <h4 class="text-success ml-2">{{ $teacher->pivot->comment }} </h4>
+                     </li>
                      @endforeach
+                     </ul>
                 </div>
 
 

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Student;
 use Illuminate\Http\Request;
 use Session;
-use PDF;
 
 class StudentController extends Controller
 {
@@ -16,7 +15,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $userid = Session::get('user_id');
+        $userid = session()->get('user_id');
         $student = Student::where('user_id', $userid)->first();
         $vacancies = $student->vacancies;
         $username = $student->user;
@@ -56,10 +55,28 @@ class StudentController extends Controller
      */
     public function show($id) {
         $student = Student::where('id', $id)->first();
+        $grades_arr = [];
+        $grades_count = count(json_decode($student->teachers, true));
+        if ($grades_count != 0) {
+            foreach($student->teachers as $teacher) {
+                $grades_arr[] = $teacher->pivot->grade;
+            }
+
+            $grades = array_sum($grades_arr)/$grades_count;
+        }
+        else {
+            $grades = 0;
+        }
+
+        
+
+
+
         $vacancies = $student->vacancies;
         return view('students.show', [
             'student' => $student,
-            'vacancies' => $vacancies
+            'vacancies' => $vacancies,
+            'grades' => round($grades, 2)
         ]);
     }
 
@@ -97,25 +114,11 @@ class StudentController extends Controller
         //
     }
 
-    public function generatePDF()
-    {
-        $data = ['student' => Student::where('id', 2)->first()];
-
-        $pdf = PDF::loadView('students.resume', $data);
-
-        $file = $pdf->download('student.pdf');
-
-        $student1 = Student::where('id', 2)->first();
-        $student1->resume = $file;
-        $student1->save();
-        return $file;
-
-    }
 
     public function showAll(Student $student)
     {
         //
-        if (Session::get('role') == 'teacher' || Session::get('role') == 'employer') {
+        if (session()->get('role') == 'teacher' || session()->get('role') == 'employer') {
             $students = $student::all();
             return view('students.showAll', compact('students'));
         }

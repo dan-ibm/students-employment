@@ -38,8 +38,6 @@ Route::get('employers/dashboard', 'EmployerController@index');
 
 //student routes
 Route::get('students/dashboard', 'StudentController@index');
-Route::get('resume','StudentController@showOne');
-Route::get('resume/generate-pdf','StudentController@generatePDF');
 Route::get('student/{id}', 'StudentController@show');
 Route::get('students/all', 'StudentController@showAll');
 
@@ -53,6 +51,7 @@ Route::apiResource('/vacancies', 'VacancyController');
 Route::get('vacancy/{id}', 'VacancyController@show');
 Route::post('vacancy-post', 'VacancyController@store');
 Route::get('vacancy-request/{vacid}/{studid}', 'VacancyController@request');
+Route::get('vacancy-request-not/{vacid}/{studid}', 'VacancyController@requestNot');
 
 Route::get('vacancy-create', 'VacancyController@create');
 

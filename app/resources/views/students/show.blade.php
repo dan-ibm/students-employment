@@ -25,14 +25,32 @@
     @if(null !== Session::get('teacher_id') && !$student->teachers->contains(Session::get('teacher_id')))
 
     <div class="row">
+    <strong class="text-info">Grade: </strong>
+    <p class="text-dark ml-2">{{$grades}}</p>
+    </div>
+    <div class="row">
     <a class="btn btn-primary"href="/grade-student?student_id={{$student->id}}&teacher_id={{Session::get('teacher_id')}}">Grade student</a>
     </div>
     <br>
 
     @elseif(null !== Session::get('teacher_id') && $student->teachers->contains(Session::get('teacher_id')))
 
-    <div>
+    <div class="row">
+    <strong class="text-info">Grade: </strong>
+    <p class="text-dark ml-2">{{$grades}}</p>
+    </div>
+
+    <div class="row">
     <a class="btn btn-primary disabled"href="#">Grade student</a>
+    </div>
+    <br>
+    
+
+    @elseif(null !== Session::get('role') && Session::get('role') == "employer")
+
+    <div class="row">
+    <strong class="text-info">Grade: </strong>
+    <p class="text-dark ml-2">{{$grades}}</p>
     </div>
     <br>
 

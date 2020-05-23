@@ -17,7 +17,18 @@
             <div class="col-md-12">
                 <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                     <div class="col p-4 d-flex flex-column position-static">
-                        <strong class="d-inline-block mb-2 text-primary">{{ $student->id }}</strong>
+                        <strong class="d-inline-block mb-2 text-success">Grade: @php {{
+                            $grades_arr = [];
+                            if (count($student->teachers) != 0) {
+                                foreach($student->teachers as $teacher) {
+                                    $grades_arr[] = $teacher->pivot->grade;
+                                }
+                                echo round(array_sum($grades_arr)/count($student->teachers), 2); 
+                            }
+                            else {
+                                echo 0;
+                            }
+                        }} @endphp</strong>
                         <h3 class="mb-0">{{ $student->first_name }} {{ $student->last_name }}</h3>
                             <div class="mb-1 text-muted">Email: {{ $student->user->email }} - {{ $student->phone }}</div>
                              <p class="card-text mb-3">{{ $student->title }}</p>
