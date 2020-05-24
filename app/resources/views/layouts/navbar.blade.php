@@ -21,6 +21,7 @@
                             <a class="dropdown-item" href="{{url('/employers/dashboard')}}">Dashboard</a>
                         @elseif(session()->get('role') == 'student')
                             <a class="dropdown-item" href="{{url('/students/dashboard')}}">Dashboard</a>
+                            <a class="dropdown-item" href="/student/{{session()->get('student_id')}}">My profile</a>
                         @elseif(session()->get('role') == 'teacher')
                             <a class="dropdown-item" href="{{url('/teachers/dashboard')}}">Dashboard</a>
                         @endif

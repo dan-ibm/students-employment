@@ -31,16 +31,22 @@
                      @endforeach
                 </div>
 
+                
+
                 <div class="row px-2">
-                     <h4 class = "text-secondary">My grades: </h4>
-                     <ul>
-                     @foreach($student->teachers as $teacher)
-                     <li>
-                     <h4 class="text-success ml-2">{{ $teacher->pivot->grade }} - <a href="#">{{ $teacher->first_name }} {{ $teacher->last_name }}</h4></a>
-                     <h4 class="text-success ml-2">{{ $teacher->pivot->comment }} </h4>
-                     </li>
-                     @endforeach
-                     </ul>
+                <h4 class = "text-secondary">My grades:</h4>
+                </div>
+
+                <div class="card-deck">
+                @foreach($student->teachers as $teacher)
+                <div class="card bg-light mb-3" style="max-width: 18rem;">
+                <div class="card-header">{{ $teacher->first_name }} {{ $teacher->last_name }}</div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ $teacher->pivot->grade }}</h5>
+                    <p class="card-text">{{ $teacher->pivot->comment }}</p>
+                </div>
+                </div>
+                @endforeach
                 </div>
 
 

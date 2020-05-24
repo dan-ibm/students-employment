@@ -33,6 +33,19 @@
     </div>
     <br>
 
+    <div class="card-deck">
+    @foreach($student->teachers as $teacher)
+    <div class="card bg-light mb-3" style="max-width: 18rem;">
+    <div class="card-header">{{ $teacher->first_name }} {{ $teacher->last_name }}</div>
+    <div class="card-body">
+        <h5 class="card-title">{{ $teacher->pivot->grade }}</h5>
+        <p class="card-text">{{ $teacher->pivot->comment }}</p>
+    </div>
+    </div>
+    @endforeach
+    </div>
+    <br>
+
     @elseif(null !== Session::get('teacher_id') && $student->teachers->contains(Session::get('teacher_id')))
 
     <div class="row">
@@ -44,13 +57,38 @@
     <a class="btn btn-primary disabled"href="#">Grade student</a>
     </div>
     <br>
+    <div class="card-deck">
+    @foreach($student->teachers as $teacher)
+    <div class="card bg-light mb-3" style="max-width: 18rem;">
+    <div class="card-header">{{ $teacher->first_name }} {{ $teacher->last_name }}</div>
+    <div class="card-body">
+        <h5 class="card-title">{{ $teacher->pivot->grade }}</h5>
+        <p class="card-text">{{ $teacher->pivot->comment }}</p>
+    </div>
+    </div>
+    @endforeach
+    </div>
+    <br>
     
 
-    @elseif(null !== Session::get('role') && Session::get('role') == "employer")
+    @elseif((null !== Session::get('role') && Session::get('role') == "employer") or (null !== Session::get('student_id') && Session::get('student_id') == $student->id))
 
     <div class="row">
     <strong class="text-info">Grade: </strong>
     <p class="text-dark ml-2">{{$grades}}</p>
+    </div>
+
+    
+    <div class="card-deck">
+    @foreach($student->teachers as $teacher)
+    <div class="card bg-light mb-3" style="max-width: 18rem;">
+    <div class="card-header">{{ $teacher->first_name }} {{ $teacher->last_name }}</div>
+    <div class="card-body">
+        <h5 class="card-title">{{ $teacher->pivot->grade }}</h5>
+        <p class="card-text">{{ $teacher->pivot->comment }}</p>
+    </div>
+    </div>
+    @endforeach
     </div>
     <br>
 
